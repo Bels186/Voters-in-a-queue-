@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Queue Program Output</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 30px;
+        }
+        h2 {
+            color: #4ec9b0;
+        }
+        .console {
+            background-color: #2d2d2d;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #444;
+            white-space: pre-wrap;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>C++ Queue Simulation Output</h2>
+    <div class="console" id="output-box"></div>
+
+    <script>
+        const outputBox = document.getElementById('output-box');
+        let consoleOutput = "";
+
+        // Helper function to print text like std::cout
+        function print(text = "") {
+            consoleOutput += text + "\n";
+            outputBox.textContent = consoleOutput;
+        }
+
+        // --- Translated C++ Logic ---
+        let votingQueue = [];
+        let voters = ["Bella", "Reynolds", "Grace", "Gideon", "Deli"];
+
+        print("=== Voters Joining the Queue ===");
+        for (let voter of voters) {
+            votingQueue.push(voter); // Enqueue voter
+            print("[Joined] " + voter + " entered the voting line.");
+        }
+
+        print("\n-----------------------------------");
+        print("First voter in line to vote: " + votingQueue[0]);
+        print("Total voters waiting: " + votingQueue.length);
+        print("-----------------------------------\n");
+
+        print("=== Voting Process Started ===");
+
+        // Process voters in FIFO (First-In, First-Out) order
+        while (votingQueue.length > 0) {
+            let currentVoter = votingQueue.shift(); // Dequeue front voter
+            print("[Voting] " + currentVoter + " is casting their vote.");
+        }
+
+        print("\nVoting complete! All voters have cast their votes.");
+    </script>
+
+</body>
+</html>
